@@ -51,11 +51,11 @@ const features = [
 const container = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
-};
+} as const;
 
 const item = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { type: "spring", stiffness: 100 } },
+  show: { opacity: 1, y: 0, transition: { type: "spring" as const, stiffness: 100 } },
 };
 
 export function Features() {

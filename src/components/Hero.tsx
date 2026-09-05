@@ -1,24 +1,26 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Sparkles, Globe, Languages } from "lucide-react";
 import { Button } from "./ui/button";
-
-const particles = Array.from({ length: 20 }, (_, i) => ({
-  id: i,
-  x: Math.random() * 100,
-  y: Math.random() * 100,
-  delay: Math.random() * 5,
-  size: Math.random() * 3 + 2,
-}));
+import { HeroScene } from "./HeroScene";
 
 export function Hero() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden grid-bg">
-      {/* Particles */}
-      {particles.map((p) => (
+      {/* Three.js 3D scene */}
+      <HeroScene />
+
+      {/* CSS particle overlay */}
+      {Array.from({ length: 15 }, (_, i) => (
         <div
-          key={p.id}
+          key={i}
           className="particle"
-          style={{ left: `${p.x}%`, top: `${p.y}%`, animationDelay: `${p.delay}s`, width: p.size, height: p.size }}
+          style={{
+            left: `${10 + Math.random() * 80}%`,
+            top: `${10 + Math.random() * 80}%`,
+            animationDelay: `${Math.random() * 5}s`,
+            width: Math.random() * 3 + 2,
+            height: Math.random() * 3 + 2,
+          }}
         />
       ))}
 
@@ -97,7 +99,7 @@ export function Hero() {
           className="mt-16 grid grid-cols-3 gap-8 max-w-lg mx-auto"
         >
           {[
-            { value: "8", label: "Repos" },
+            { value: "10", label: "Repos" },
             { value: "152K+", label: "Dict Entries" },
             { value: "105K+", label: "Parallel Pairs" },
           ].map((stat) => (
