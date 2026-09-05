@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-zolai-50: #f0fdf4;
+  --color-zolai-100: #dcfce7;
+  --color-zolai-200: #bbf7d0;
+  --color-zolai-400: #4ade80;
+  --color-zolai-500: #22c55e;
+  --color-zolai-600: #16a34a;
+  --color-zolai-700: #15803d;
+  --color-zolai-900: #14532d;
+}
+
+html { scroll-behavior: smooth; }
+
+.gradient-text {
+  background: linear-gradient(135deg, #4ade80 0%, #22d3ee 50%, #a78bfa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glow { box-shadow: 0 0 40px rgba(34, 197, 94, 0.15); }
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+@keyframes border-rotate {
+  0%   { --angle: 0deg; }
+  100% { --angle: 360deg; }
+}
+
+.animated-border {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+}
+.animated-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: conic-gradient(from var(--angle, 0deg), #4ade80, #22d3ee, #a78bfa, #4ade80);
+  border-radius: inherit;
+  animation: border-rotate 4s linear infinite;
+  z-index: -1;
+}
+.animated-border::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  background: #030712;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0.4; }
+  50%      { transform: translateY(-20px) rotate(180deg); opacity: 0.8; }
+}
+.particle {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #4ade80;
+  border-radius: 50%;
+  animation: float 6s ease-in-out infinite;
+}

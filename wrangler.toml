@@ -1,0 +1,6 @@
+name = "zolai-landing"
+compatibility_date = "2024-11-01"
+
+[[routes]]
+pattern = "zolai.space/*"
+zone_name = "zolai.space"
