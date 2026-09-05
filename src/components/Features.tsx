@@ -42,7 +42,7 @@ const features = [
   {
     icon: Shield,
     title: "Open Source MIT",
-    description: "All 8 repos MIT-licensed. Community-driven, transparent, built for the Zomi people.",
+    description: "All 10 repos MIT-licensed. Community-driven, transparent, built for the Zomi people.",
     color: "text-emerald-400",
     bg: "bg-emerald-500/10",
   },

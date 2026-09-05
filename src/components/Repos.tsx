@@ -23,6 +23,8 @@ const REPO_DESCRIPTIONS: Record<string, string> = {
   "zolai-wiki": "Knowledge base — grammar, vocabulary, curriculum",
   "zolai-ai.github.io": "GitHub Pages org landing site",
   ".github": "Org profile + community files + workflows",
+  "zolai-mcp-server": "MCP server for ChatGPT/Gemini/Claude — EdgeFastMCP on Cloudflare Workers",
+  "zolai-landing": "Org landing page — React 19 + Vite + Three.js + Tailwind v4",
 };
 
 const REPO_ICONS: Record<string, string> = {
@@ -34,6 +36,8 @@ const REPO_ICONS: Record<string, string> = {
   "zolai-wiki": "📖",
   "zolai-ai.github.io": "🏠",
   ".github": "⚙️",
+  "zolai-mcp-server": "🤖",
+  "zolai-landing": "🌐",
 };
 
 const LANG_COLORS: Record<string, string> = {
@@ -58,7 +62,7 @@ export function Repos() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            8 Repos, <span className="gradient-text">One Ecosystem</span>
+            10 Repos, <span className="gradient-text">One Ecosystem</span>
           </h2>
           <p className="text-white/50 max-w-xl mx-auto">
             Live stats from GitHub — all repos on main, MIT licensed, CI passing.
@@ -67,7 +71,7 @@ export function Repos() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
           {isLoading
-            ? Array.from({ length: 8 }).map((_, i) => (
+            ? Array.from({ length: 10 }).map((_, i) => (
                 <Card key={i} className="animate-pulse">
                   <CardContent className="p-5">
                     <div className="h-4 bg-white/5 rounded w-3/4 mb-3" />

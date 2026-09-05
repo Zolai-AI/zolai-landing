@@ -20,6 +20,8 @@ const REPOS = [
   "zolai-wiki",
   "zolai-ai.github.io",
   ".github",
+  "zolai-mcp-server",
+  "zolai-landing",
 ];
 
 const DESCRIPTIONS: Record<string, string> = {
@@ -31,6 +33,8 @@ const DESCRIPTIONS: Record<string, string> = {
   "zolai-wiki": "Knowledge base — grammar, vocabulary, curriculum, ZVS 2018",
   "zolai-ai.github.io": "GitHub Pages org landing site",
   ".github": "Org profile + community files + workflows",
+  "zolai-mcp-server": "MCP server for ChatGPT/Gemini/Claude — EdgeFastMCP on Cloudflare Workers",
+  "zolai-landing": "Org landing page — React 19 + Vite + Three.js + Tailwind v4",
 };
 
 const ICONS: Record<string, string> = {
@@ -42,6 +46,8 @@ const ICONS: Record<string, string> = {
   "zolai-wiki": "📖",
   "zolai-ai.github.io": "🏠",
   ".github": "⚙️",
+  "zolai-mcp-server": "🤖",
+  "zolai-landing": "🌐",
 };
 
 async function fetchRepo(name: string): Promise<Repo> {

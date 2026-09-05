@@ -8,6 +8,10 @@ const links = [
   { label: "Datasets", href: "https://github.com/Zolai-AI/zolai-datasets" },
   { label: "Training", href: "https://github.com/Zolai-AI/zolai-training" },
   { label: "Wiki", href: "https://github.com/Zolai-AI/zolai-wiki" },
+  { label: "MCP Server", href: "https://github.com/Zolai-AI/zolai-mcp-server" },
+  { label: "Landing", href: "https://github.com/Zolai-AI/zolai-landing" },
+  { label: "GitHub Pages", href: "https://github.com/Zolai-AI/zolai-ai.github.io" },
+  { label: ".github", href: "https://github.com/Zolai-AI/.github" },
 ];
 
 export function Footer() {
