@@ -1,5 +1,7 @@
 # zolai-landing — zolai.space
 
+<p align="center"><img src="logo.png" alt="Zolai AI" width="120"></p>
+
 Landing page for the [Zolai-AI](https://github.com/Zolai-AI) organization.
 Deployed to **Cloudflare Workers** at `https://zolai.space`.
 
