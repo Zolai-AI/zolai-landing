@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Brain, BookOpen, Monitor, Database, MessageSquare, Shield } from "lucide-react";
+import { Brain, BookOpen, Monitor, Database, MessageSquare, Shield, Mic, Wand2, Cpu, Trophy } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "./ui/card";
 
 const features = [
@@ -12,32 +12,53 @@ const features = [
     bg: "bg-zolai-500/10",
   },
   {
-    icon: MessageSquare,
+    icon: Wand2,
+    title: "Syllable Engine (SylBreak4All)",
+    description: "10/10 milestones: 4-tone system, rule+CRF segmenters (99.8% F1), 10K gold dataset, tokenizer training, E2E testing.",
+    color: "text-violet-400",
+    bg: "bg-violet-500/10",
+  },
+  {
+    icon: Cpu,
     title: "Bilingual AI Tutor",
     description: "Socratic tutor with CEFR A1–C2 levels. Grammar guides, practice modes, all in Tedim Zolai.",
     color: "text-cyan-400",
     bg: "bg-cyan-500/10",
   },
   {
-    icon: Monitor,
-    title: "Offline Desktop",
-    description: "Tauri 2 app with bundled Ollama + GGUF models. Full functionality without internet.",
+    icon: Mic,
+    title: "MCP Server for ChatGPT",
+    description: "Live at mcp.zolai.space/mcp — 8 tools: Bible, dictionary, grammar, translation, analysis, quiz, progress, feedback.",
     color: "text-purple-400",
     bg: "bg-purple-500/10",
   },
   {
+    icon: Monitor,
+    title: "Offline Desktop (Tauri 2)",
+    description: "Bundled Ollama + GGUF models. Full functionality without internet. Rust + WebView2.",
+    color: "text-pink-400",
+    bg: "bg-pink-500/10",
+  },
+  {
     icon: Database,
     title: "Bilingual Datasets",
-    description: "152K dictionary entries, 105K+ parallel pairs, published on HuggingFace & Kaggle.",
+    description: "152K dictionary entries, 105K+ parallel pairs, 31K Bible verses, published on HuggingFace & Kaggle.",
     color: "text-amber-400",
     bg: "bg-amber-500/10",
   },
   {
     icon: BookOpen,
     title: "ZVS 2018 Standard",
-    description: "Automated orthography compliance. SOV word order, ergative 'in' enforced across all output.",
+    description: "Automated orthography compliance. SOV word order, ergative 'in', 4-tone system enforced across all output.",
     color: "text-rose-400",
     bg: "bg-rose-500/10",
+  },
+  {
+    icon: Trophy,
+    title: "SylBreak4All v1.0.0",
+    description: "Complete syllable pipeline: audit→design→rule→gold→CRF→eval→integration→tokenizer→E2E→release. All 10 milestones done.",
+    color: "text-gold-400",
+    bg: "bg-gold-500/10",
   },
   {
     icon: Shield,
