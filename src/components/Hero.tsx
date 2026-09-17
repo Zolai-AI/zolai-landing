@@ -100,8 +100,8 @@ export function Hero() {
         >
           {[
             { value: "10", label: "Repos" },
-            { value: "152K+", label: "Dict Entries" },
-            { value: "105K+", label: "Parallel Pairs" },
+            { value: "148K+", label: "Dict Entries" },
+            { value: "207K+", label: "Parallel Pairs" },
           ].map((stat) => (
             <div key={stat.label}>
               <div className="text-2xl font-bold text-white">{stat.value}</div>

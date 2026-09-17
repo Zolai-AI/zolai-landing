@@ -14,7 +14,7 @@ const features = [
   {
     icon: Wand2,
     title: "Syllable Engine (SylBreak4All)",
-    description: "10/10 milestones: 4-tone system, rule+CRF segmenters (99.8% F1), 10K gold dataset, tokenizer training, E2E testing.",
+    description: "10/10 milestones: 4-tone system, rule+CRF segmenters (98.49% accuracy), 10K gold dataset, tokenizer training, E2E testing.",
     color: "text-violet-400",
     bg: "bg-violet-500/10",
   },
@@ -42,7 +42,7 @@ const features = [
   {
     icon: Database,
     title: "Bilingual Datasets",
-    description: "152K dictionary entries, 105K+ parallel pairs, 31K Bible verses, published on HuggingFace & Kaggle.",
+    description: "148K+ dictionary entries, 207K+ parallel pairs, 31K Bible verses, published on HuggingFace & Kaggle.",
     color: "text-amber-400",
     bg: "bg-amber-500/10",
   },
