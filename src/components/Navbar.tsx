@@ -7,7 +7,7 @@ const links = [
   { label: "Features", href: "#features" },
   { label: "Repos", href: "#repos" },
   { label: "Stack", href: "#stack" },
-  { label: "Docs", href: "https://github.com/Zolai-AI/.github/blob/main/docs/ECOSYSTEM_AUDIT.md" },
+  { label: "Docs", href: "https://github.com/Zolai-AI/.github/blob/main/docs/reports/ECOSYSTEM_AUDIT_V2.md" },
 ];
 
 export function Navbar() {

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ArrowRight, Sparkles, Globe, Languages } from "lucide-react";
+import { Sparkles, Globe, Languages } from "lucide-react";
 import { Button } from "./ui/button";
 import { HeroScene } from "./HeroScene";
 
@@ -79,10 +79,8 @@ export function Hero() {
           transition={{ delay: 0.7 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
-          <Button size="lg" asChild>
-            <a href="https://zolai-web.vercel.app" target="_blank" rel="noopener">
-              <Globe className="h-5 w-5" /> Try Zolai Web <ArrowRight className="h-4 w-4" />
-            </a>
+          <Button size="lg" disabled title="Zolai Web is not deployed yet">
+            <Globe className="h-5 w-5" /> Zolai Web — Coming soon
           </Button>
           <Button size="lg" variant="outline" asChild>
             <a href="https://github.com/Zolai-AI" target="_blank" rel="noopener">
