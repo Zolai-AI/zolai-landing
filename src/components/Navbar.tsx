@@ -5,6 +5,7 @@ import { Button } from "./ui/button";
 
 const links = [
   { label: "Features", href: "#features" },
+  { label: "Connect", href: "#connect" },
   { label: "Repos", href: "#repos" },
   { label: "Stack", href: "#stack" },
   { label: "Docs", href: "https://github.com/Zolai-AI/.github/blob/main/docs/reports/ECOSYSTEM_AUDIT_V2.md" },

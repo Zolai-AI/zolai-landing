@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Brain, BookOpen, Monitor, Database, MessageSquare, Shield, Mic, Wand2, Cpu, Trophy } from "lucide-react";
+import { Brain, BookOpen, Monitor, Database, Plug, Shield, Wand2, Cpu, Trophy } from "lucide-react";
 import { Card, CardHeader, CardTitle, CardDescription } from "./ui/card";
 
 const features = [
@@ -26,9 +26,10 @@ const features = [
     bg: "bg-cyan-500/10",
   },
   {
-    icon: Mic,
-    title: "MCP Server for ChatGPT",
-    description: "Live at mcp.zolai.space/mcp — 8 tools: Bible, dictionary, grammar, translation, analysis, quiz, progress, feedback.",
+    icon: Plug,
+    title: "MCP for every AI chat",
+    description:
+      "Live at mcp.zolai.space/mcp — 8 free tools, 30+ with OAuth 2.1 sign-in. Works with ChatGPT, Claude, Cursor, Gemini and any MCP client, and takes contributions back.",
     color: "text-purple-400",
     bg: "bg-purple-500/10",
   },

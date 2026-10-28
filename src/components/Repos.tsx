@@ -23,7 +23,7 @@ const REPO_DESCRIPTIONS: Record<string, string> = {
   "zolai-wiki": "Knowledge base — grammar, vocabulary, curriculum",
   "zolai-ai.github.io": "GitHub Pages org landing site",
   ".github": "Org profile + community files + workflows",
-  "zolai-mcp-server": "MCP server for ChatGPT/Gemini/Claude — EdgeFastMCP on Cloudflare Workers",
+  "zolai-mcp-server": "Legacy Worker wrapper — the live MCP now runs in zolai-core at mcp.zolai.space (OAuth 2.1)",
   "zolai-landing": "Org landing page — React 19 + Vite + Three.js + Tailwind v4",
 };
 

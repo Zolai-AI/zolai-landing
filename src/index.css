@@ -9,6 +9,8 @@
   --color-zolai-600: #16a34a;
   --color-zolai-700: #15803d;
   --color-zolai-900: #14532d;
+  --color-gold-400: #facc15;
+  --color-gold-500: #eab308;
 }
 
 html { scroll-behavior: smooth; }
@@ -68,4 +70,10 @@ html { scroll-behavior: smooth; }
   background: #4ade80;
   border-radius: 50%;
   animation: float 6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .particle { animation: none; }
+  .animated-border::before { animation: none; }
 }
