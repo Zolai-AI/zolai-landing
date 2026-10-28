@@ -157,7 +157,7 @@ export function Connect() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.2 }}
-            className="lg:col-span-2"
+            className="min-w-0 lg:col-span-2"
           >
             <Card className="h-full border-white/10 bg-white/[0.03]">
               <CardContent className="p-6 md:p-8 space-y-8">
@@ -203,7 +203,7 @@ export function Connect() {
             initial={{ opacity: 0, y: 24 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ delay: 0.3 }}
-            className="lg:col-span-3"
+            className="min-w-0 lg:col-span-3"
           >
             <Card className="h-full border-white/10 bg-white/[0.03]">
               <CardContent className="p-6 md:p-8">

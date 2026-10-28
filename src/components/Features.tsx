@@ -108,14 +108,14 @@ export function Features() {
           className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
         >
           {features.map((f) => (
-            <motion.div key={f.title} variants={item}>
-              <Card className="h-full hover:border-white/20 transition-all duration-300 hover:glow group">
+            <motion.div key={f.title} variants={item} className="min-w-0">
+              <Card className="h-full min-w-0 hover:border-white/20 transition-all duration-300 hover:glow group">
                 <CardHeader>
                   <div className={`w-10 h-10 rounded-xl ${f.bg} flex items-center justify-center mb-3 group-hover:scale-110 transition-transform`}>
                     <f.icon className={`h-5 w-5 ${f.color}`} />
                   </div>
                   <CardTitle className="text-lg">{f.title}</CardTitle>
-                  <CardDescription className="leading-relaxed">{f.description}</CardDescription>
+                  <CardDescription className="leading-relaxed break-words [overflow-wrap:anywhere]">{f.description}</CardDescription>
                 </CardHeader>
               </Card>
             </motion.div>
