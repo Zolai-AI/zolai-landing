@@ -1,0 +1,44 @@
+project:
+  name: zolai-landing
+  slug: zolai-landing
+  display_name: zolai-landing
+  type: web
+  category: marketing
+  owner: Zolai-AI
+
+  description: >
+    Org landing page for zolai.space.
+
+version:
+  current: 1.0.0
+  channel: dev
+  release_name: genesis
+  build_number: 001
+
+lifecycle:
+  stage: development
+  status: active
+  started: 2024-01-01
+  updated: 2026-11-23
+
+repository:
+  url: git@github.com:Zolai-AI/zolai-landing.git
+  branch: main
+  provider: github
+  visibility: public
+
+stack:
+  languages:
+    - typescript
+  frameworks:
+    - react
+    - vite
+    - threejs
+  package_manager: bun
+  runtime: node
+
+ai:
+  assistant: cursor
+  context_dir: context/
+  entry_point: AGENTS.md
+  rules: []
