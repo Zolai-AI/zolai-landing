@@ -2,61 +2,58 @@
 
 ## Theme
 
-[Describe the overall visual language — e.g. Dark only.
-No light mode. The design language is a dark technical
-workspace — near-black backgrounds, layered surfaces,
-and vivid accent colors for interactive elements.]
+Dark landing page with a custom zolai-green palette. `src/index.css` defines the
+color tokens plus gradient text, glow, grid background, animated border and particle
+effects, and disables animations under `prefers-reduced-motion`. Source: README.md,
+src/index.css.
 
 ## Colors
 
-[Define your color tokens as CSS custom properties.
-All components must use these tokens — no hardcoded
-hex values.]
+Real CSS custom properties declared under `@theme` in HEAD `src/index.css`:
 
-| Role            | CSS Variable       | Value    |
-| --------------- | ------------------ | -------- |
-| Page background | `--bg-base`        | `#[hex]` |
-| Surface         | `--bg-surface`     | `#[hex]` |
-| Primary text    | `--text-primary`   | `#[hex]` |
-| Muted text      | `--text-muted`     | `#[hex]` |
-| Primary accent  | `--accent-primary` | `#[hex]` |
-| Border          | `--border-default` | `#[hex]` |
-| Error           | `--state-error`    | `#[hex]` |
-| Success         | `--state-success`  | `#[hex]` |
+| Role | CSS Variable | Value | Source |
+|------|--------------|-------|--------|
+| Zolai 50 | `--color-zolai-50` | `#f0fdf4` | src/index.css |
+| Zolai 100 | `--color-zolai-100` | `#dcfce7` | src/index.css |
+| Zolai 200 | `--color-zolai-200` | `#bbf7d0` | src/index.css |
+| Zolai 400 | `--color-zolai-400` | `#4ade80` | src/index.css |
+| Zolai 500 | `--color-zolai-500` | `#22c55e` | src/index.css |
+| Zolai 600 | `--color-zolai-600` | `#16a34a` | src/index.css |
+| Zolai 700 | `--color-zolai-700` | `#15803d` | src/index.css |
+| Zolai 900 | `--color-zolai-900` | `#14532d` | src/index.css |
+| Gold 400 | `--color-gold-400` | `#facc15` | src/index.css |
+| Gold 500 | `--color-gold-500` | `#eab308` | src/index.css |
 
 ## Typography
 
-| Role      | Font              | Variable      |
-| --------- | ----------------- | ------------- |
-| UI text   | [e.g. Geist Sans] | `--font-sans` |
-| Code/mono | [e.g. Geist Mono] | `--font-mono` |
+| Role | Font | Variable | Source |
+|------|------|----------|--------|
+| UI text | N/A — no font token declared in HEAD | N/A — source: src/index.css | src/index.css |
+| Code/mono | N/A — no font token declared in HEAD | N/A — source: src/index.css | src/index.css |
 
 ## Border Radius
 
-| Context           | Class            |
-| ----------------- | ---------------- |
-| Inline / small UI | `rounded-[size]` |
-| Cards / panels    | `rounded-[size]` |
-| Modals / overlays | `rounded-[size]` |
+| Context | Class / Rule | Value | Source |
+|---------|--------------|-------|--------|
+| Animated border CTA | `.animated-border` | `border-radius: 1rem` | src/index.css |
+| Floating particles | `.particle` | `border-radius: 50%` | src/index.css |
 
 ## Component Library
 
-[e.g. shadcn/ui on top of Tailwind. Components live
-in components/ui/. Use the CLI to add new components
-rather than writing from scratch.]
+shadcn/ui primitives are committed under `src/components/ui/` (badge, button, card,
+copy-button, separator); app sections live in `src/components/`. Reuse the committed
+components rather than adding a new kit, as recorded in AGENTS.md. Source: git
+ls-tree -r HEAD -- src, README.md, AGENTS.md.
 
 ## Layout Patterns
 
-- [Pattern — e.g. Editor: full-viewport split with
-  left sidebar, center canvas, right sidebar]
-- [Pattern — e.g. Sidebars: fixed width with border separator]
-- [Pattern — e.g. Modals: centered overlay with backdrop blur]
-- [Pattern — e.g. Navbar: top bar with bottom border]
+- Navbar → Hero → Features → Repos → Tech → CTA → Footer composition in `src/App.tsx` (source: README.md).
+- Fixed nav with scroll blur and responsive mobile menu using AnimatePresence (source: README.md).
+- Animated gradient border CTA section and tech grid with hover effects (source: README.md).
 
 ## Icons
 
-[e.g. Lucide React. Stroke-based icons only. Sizes:
-h-4 w-4 for inline, h-5 w-5 for buttons.]
+Lucide React, as declared in `package.json` and documented in README.md.
 
 ## Skills (UI / UX)
 

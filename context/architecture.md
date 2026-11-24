@@ -2,69 +2,70 @@
 
 ## Stack
 
-| Layer     | Technology                  | Role   |
-| --------- | --------------------------- | ------ |
-| Framework | [e.g. Next.js + TypeScript] | [Role] |
-| UI        | [e.g. Tailwind + shadcn/ui] | [Role] |
-| Auth      | [e.g. Clerk]                | [Role] |
-| Database  | [e.g. Prisma + PostgreSQL]  | [Role] |
-| [Layer]   | [Technology]                | [Role] |
+| Layer | Technology | Role | Source |
+|-------|-----------|------|--------|
+| Language | TypeScript | Application language | project.yaml, package.json |
+| UI | React | Component framework | project.yaml, package.json |
+| Build | Vite | Dev server and bundler | project.yaml, package.json |
+| Data fetching | TanStack Query | GitHub API data fetching | package.json, README.md |
+| Animation | Framer Motion | Scroll and menu animation | package.json, README.md |
+| 3D | Three.js with React Three Fiber and Drei | Hero scene | package.json, src tree |
+| Styling | Tailwind CSS with shadcn/ui primitives | Styling and UI kit | package.json, README.md, git ls-tree -r HEAD -- src |
+| Icons | Lucide React | Icon set | package.json, README.md |
+| Hosting | Cloudflare Pages | Static hosting and route | wrangler.toml, README.md |
+| Package manager | bun | Dependency and script runner | project.yaml |
 
 ## System Boundaries
 
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
-- `[folder]` — [What this folder owns and is responsible for]
+- `src/App.tsx` — page composition from Navbar through Footer (source: README.md, git ls-tree -r HEAD -- src).
+- `src/main.tsx` — React and QueryClientProvider entry (source: README.md).
+- `src/components/` — landing sections including Navbar, Hero, Features, Repos, TechStack, CTA, Footer, Connect, Credits and HeroScene (source: git ls-tree -r HEAD -- src).
+- `src/components/ui/` — shadcn/ui primitives: badge, button, card, copy-button, separator (source: git ls-tree -r HEAD -- src).
+- `src/hooks/` — `useGitHubRepos.ts`, the TanStack Query hook for GitHub data (source: git ls-tree -r HEAD -- src, README.md).
+- `src/lib/` — `utils.ts` with the `cn()` helper (source: git ls-tree -r HEAD -- src, README.md).
+- `src/index.css` — Tailwind theme, custom tokens and animations (source: src/index.css, README.md).
+- `wrangler.toml` — Cloudflare Pages route `zolai.space/*` (source: wrangler.toml).
 
 ## Storage Model
 
-- **[Storage type e.g. Database]**: [What lives here —
-  e.g. metadata, ownership, relationships]
-- **[Storage type e.g. Blob/File Storage]**: [What lives
-  here — e.g. generated files, media, large artifacts]
+- **Application database**: N/A — source: package.json, wrangler.toml, git ls-tree -r HEAD -- src.
+- **Runtime data**: GitHub repository statistics fetched client-side through TanStack Query with a five-minute stale cache (source: README.md).
+- **Build output**: `dist/`, deployed to Cloudflare Pages (source: README.md, wrangler.toml).
 
 ## Auth and Access Model
 
-- [How authentication works — e.g. Every user signs in
-  via Clerk]
-- [How ownership works — e.g. Every project has a single
-  owner]
-- [How access control works — e.g. Only the owner or a
-  collaborator can mutate project resources]
+- No sign-in, ownership or access-control model exists in HEAD sources (source: README.md, git ls-tree -r HEAD -- src).
+- The front-end bundle is fully public; Cloudflare/env secrets live in the dashboard or via `wrangler secret`, never in `src/` (source: AGENTS.md).
+- Public variables in `wrangler.toml` are visible to everyone (source: AGENTS.md).
 
 ## System Design & Infrastructure
 
-Fill in the concepts relevant to this project. Leave rows
-blank if not yet decided — the list serves as a checklist.
-
-| Concept | Service / Tech | Notes |
-|---------|---------------|-------|
-| **Compute** | [e.g. Next.js on Vercel, Cloudflare Workers, Node server] | Serverless vs container vs VM |
-| **Database** | [e.g. PostgreSQL via Neon, Supabase, Turso] | Scaling approach: read replicas, connection pooling, sharding |
-| **Object Storage** | [e.g. R2, S3, Cloudflare Images] | File uploads, generated content, media, backups |
-| **CDN** | [e.g. Cloudflare, Vercel Edge, Fastly] | Static assets, global caching, edge functions |
-| **Caching** | [e.g. Redis, Cloudflare Cache, in-memory] | Cache strategy: stale-while-revalidate, CDN cache keys, distributed cache |
-| **Queue / Async** | [e.g. BullMQ, Cloudflare Queues, RabbitMQ] | Background jobs, email delivery, webhook dispatch, retries with backoff |
-| **Rate Limiting** | [e.g. Upstash, Cloudflare Rate Limiting, Token bucket] | Per-user, per-IP, per-endpoint tiers |
-| **Load Balancing** | [e.g. Cloudflare, ALB, DNS round-robin] | Multi-region, session affinity, health checks |
-| **Microservices** | [e.g. Internal APIs, Workers, Docker services] | Service boundaries, inter-service auth, sync vs event-driven |
-| **Observability** | [e.g. OpenTelemetry, Sentry, Grafana, Cloudflare Analytics] | Logs, metrics, traces, alerting, dashboards |
-| **Search** | [e.g. Typesense, Meilisearch, Algolia, pgvector] | Full-text search, vector embeddings, faceted filters |
-| **Streaming / Realtime** | [e.g. WebSockets, SSE, Realtime Supabase, Durable Objects] | Live updates, collaborative editing, push notifications |
+| Concept | Service / Tech | Notes | Source |
+|---------|---------------|-------|--------|
+| **Compute** | Cloudflare Pages static bundle | No server runtime in the repo | README.md, wrangler.toml |
+| **Database** | N/A — source: package.json | No database dependency or binding | package.json |
+| **Object Storage** | N/A — source: wrangler.toml | No bucket binding | wrangler.toml |
+| **CDN** | Cloudflare Pages | Custom domain route `zolai.space/*` | wrangler.toml |
+| **Caching** | TanStack Query | Five-minute stale cache for GitHub stats | README.md |
+| **Queue / Async** | N/A — source: package.json | No queue dependency | package.json |
+| **Rate Limiting** | N/A — source: package.json | No rate-limiting code in HEAD | package.json |
+| **Load Balancing** | N/A — source: wrangler.toml | Handled by the hosting platform, not configured here | wrangler.toml |
+| **Microservices** | N/A — source: README.md | Static front end only | README.md |
+| **Observability** | N/A — source: wrangler.toml | No observability block in HEAD | wrangler.toml |
+| **Search** | N/A — source: README.md | No search feature documented | README.md |
+| **Streaming / Realtime** | N/A — source: README.md | No realtime transport documented | README.md |
 
 ## Scaling & Performance Constraints
 
-- [Expected traffic volume — e.g. 10K DAU, 1M requests/month]
-- [P99 latency target — e.g. <200ms for API, <1s for page load]
-- [Data growth estimate — e.g. 10GB/month, 1M new rows/month]
-- [Availability target — e.g. 99.9% uptime, multi-region failover]
-- [Budget constraint — e.g. PaaS free tier, <$50/mo infra cost]
+- Traffic volume: UNKNOWN — source: README.md.
+- Latency target: UNKNOWN — source: README.md.
+- Data growth estimate: UNKNOWN — source: README.md.
+- Availability target: UNKNOWN — source: README.md.
+- Budget constraint: UNKNOWN — source: README.md.
 
 ## Invariants
 
-1. [Rule the codebase must never violate — e.g. Request
-   handlers do not run long-lived background work]
-2. [Invariant two]
-3. [Invariant three]
-4. [Invariant four]
+1. No secrets in `src/`; Cloudflare/env secrets stay in the dashboard or `wrangler secret` (source: AGENTS.md).
+2. Treat public variables in `wrangler.toml` as visible to everyone (source: AGENTS.md).
+3. Scope all reads to this repo rather than the workspace root (source: AGENTS.md).
+4. Persist durable design choices into `context/ui-context.md` (source: AGENTS.md).

@@ -2,11 +2,12 @@
 
 ## Approach
 
-[Describe the overall development approach — e.g. Build
-this project incrementally using a spec-driven workflow.
-Context files define what to build, how to build it, and
-the current state of progress. Always implement against
-these specs — do not infer or invent behavior from scratch.]
+Build incrementally against the committed context files:
+`project-overview.md` defines what the landing page does, `architecture.md` fixes the
+React + Vite boundaries, `ui-context.md` holds the committed color tokens,
+`code-standards.md` defines how code is written, and `progress-tracker.md` records state.
+Scope reads to this repo, use the installed UI skills for design work, and persist
+durable design choices into `context/ui-context.md`. Source: AGENTS.md, HEAD context files.
 
 ## Scoping Rules
 
@@ -28,10 +29,9 @@ these specs — do not infer or invent behavior from scratch.]
 
 Split an implementation step if it combines:
 
-- [Concern one — e.g. UI changes and background task changes]
-- [Concern two — e.g. Multiple unrelated API routes]
-- [Concern three — e.g. Behavior not clearly defined in
-  the context files]
+- Section/component changes in `src/components/` versus GitHub data-fetching changes in `src/hooks/` (source: git ls-tree -r HEAD -- src, README.md).
+- Visual token changes in `src/index.css` versus component markup (source: src/index.css).
+- Behaviour not defined in HEAD README.md or AGENTS.md (source: README.md, AGENTS.md).
 
 If a change cannot be verified end to end quickly,
 the scope is too broad — split it.
@@ -69,8 +69,7 @@ implementing:
 
 Do not modify the following unless explicitly instructed:
 
-- [e.g. components/ui/* — generated UI library components]
-- [e.g. Any third-party library internals]
+- No protected files are declared in HEAD AGENTS.md; treat the committed token block in `src/index.css` as the UI source of truth recorded in `context/ui-context.md` (source: AGENTS.md, src/index.css).
 
 ## Keeping Docs in Sync
 
@@ -98,18 +97,18 @@ changes — **mandatory, not optional**:
 1. The current unit works end to end within its defined scope
 2. No invariant defined in `architecture.md` was violated
 3. `progress-tracker.md` reflects the completed work
-4. `npm run build` passes
+4. `bun run build` passes (source: README.md).
 
 ## Environment Divergence
 
 When a check passes in one environment but fails in another
 (e.g. local vs CI vs on-box), record the delta before adjudicating:
 
-- [runtime version — e.g. `node --version` here vs there]
-- [dependency tree — lockfile hash here vs there]
-- [env vars and secret presence — names only, never values]
-- [network reachability — what the failing step must reach]
-- [filesystem paths — what the failing step must read/write]
+- Runtime version — node runtime is declared in `project.yaml`; the exact runtime version is UNKNOWN — source: project.yaml.
+- Dependency tree — `bun.lock` is committed at the repo root (source: git ls-tree -r HEAD).
+- Env vars and secret presence — names only, never values: none are declared in `wrangler.toml`; Cloudflare/env secrets live in the dashboard or via `wrangler secret` (source: wrangler.toml, AGENTS.md).
+- Network reachability — the live URL `zolai.space` was probed 2026-11-24 (HTTP 200); the GitHub API is required for live repo stats (source: AGENTS.md, README.md).
+- Filesystem paths — `src/`, `src/assets/` and the generated `dist/` (source: git ls-tree -r HEAD -- src, README.md).
 
 A failure explained entirely by a recorded delta is an environment gap,
 not a code regression — fix the environment or pin the dependency.
@@ -138,3 +137,4 @@ bash scripts/session-claims.sh release "$PWD"
 
 Claims auto-expire after 30 min without heartbeat (`gc` purges them). Set
 `PCORE_SESSION_ID` in your session env for stable identity across shells.
+
